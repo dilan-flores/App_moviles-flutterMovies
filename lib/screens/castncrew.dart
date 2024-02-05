@@ -20,20 +20,20 @@ class CastAndCrew extends StatelessWidget {
             tabs: [
               Tab(
                 child: Text(
-                  'Cast',
+                  'Elenco',
                   style: themeData!.textTheme.bodyText1,
                 ),
               ),
               Tab(
                 child: Text(
-                  'Crew',
+                  'Equipo',
                   style: themeData!.textTheme.bodyText1,
                 ),
               ),
             ],
           ),
           title: Text(
-            'Cast And Crew',
+            'Reparto y Equipo',
             style: themeData!.textTheme.headline5,
           ),
           leading: IconButton(
@@ -94,12 +94,12 @@ class CastAndCrew extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Name : ' + credits!.cast![index].name!,
+                          'Nombre : ' + credits!.cast![index].name!,
                           style: themeData!.textTheme.bodyText2,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          'Character : ' + credits!.cast![index].character!,
+                          'Personaje : ' + credits!.cast![index].character!,
                           style: themeData!.textTheme.bodyText1,
                         ),
                       ],
@@ -155,12 +155,12 @@ class CastAndCrew extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Name : ' + credits!.crew![index].name!,
+                          'Nombre : ' + credits!.crew![index].name!,
                           style: themeData!.textTheme.bodyText2,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          'Job : ' + credits!.crew![index].job!,
+                          'Trabajo : ' + credits!.crew![index].job!,
                           style: themeData!.textTheme.bodyText1,
                         ),
                       ],

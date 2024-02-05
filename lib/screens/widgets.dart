@@ -40,7 +40,7 @@ class _DiscoverMoviesState extends State<DiscoverMovies> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child:
-              Text('Discover', style: widget.themeData.textTheme.headline5),
+              Text('Explorar', style: widget.themeData.textTheme.headline5),
             ),
           ],
         ),
@@ -567,7 +567,7 @@ class _SearchMovieWidgetState extends State<SearchMovieWidget> {
           : moviesList!.length == 0
           ? Center(
         child: Text(
-          "Oops! couldn't find the movie",
+          "Oops! No se encontró la película",
           style: widget.themeData!.textTheme.bodyText1,
         ),
       )

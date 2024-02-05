@@ -165,7 +165,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                               padding: const EdgeInsets.only(
                                                   left: 8.0),
                                               child: Text(
-                                                'Overview',
+                                                'Resumen',
                                                 style: widget.themeData
                                                     .textTheme.bodyText1,
                                               ),
@@ -186,7 +186,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                               padding: const EdgeInsets.only(
                                                   left: 8.0, bottom: 4.0),
                                               child: Text(
-                                                'Release date : ${widget.movie.releaseDate}',
+                                                'Fecha de estreno : ${widget.movie.releaseDate}',
                                                 style: widget.themeData
                                                     .textTheme.bodyText1,
                                               ),
@@ -196,8 +196,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                         ScrollingArtists(
                                           api: Endpoints.getCreditsUrl(
                                               widget.movie.id!),
-                                          title: 'Cast',
-                                          tapButtonText: 'See full cast & crew',
+                                          title: 'Elenco',
+                                          tapButtonText: 'Ver reparto y equipo completo',
                                           themeData: widget.themeData,
                                           onTap: (Cast cast) {
                                             modalBottomSheetMenu(cast);
@@ -281,7 +281,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                                     style: widget.themeData.textTheme.bodyText2,
                                   ),
                                   Text(
-                                    'as',
+                                    'como',
                                     style: widget.themeData.textTheme.bodyText2,
                                   ),
                                   Text(

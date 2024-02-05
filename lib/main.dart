@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider<ThemeState>(
       create: (_) => ThemeState(),
       child: MaterialApp(
-        title: 'Matinee',
+        title: 'Películas',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primarySwatch: Colors.blue, canvasColor: Colors.transparent),
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         centerTitle: true,
         title: Text(
-          'Matinee',
+          'Películas',
           style: state.themeData.textTheme.headline5,
         ),
         backgroundColor: state.themeData.primaryColor,
@@ -103,25 +103,25 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ScrollingMovies(
               themeData: state.themeData,
-              title: 'Top Rated',
+              title: 'Mejores clasificados',
               api: Endpoints.topRatedUrl(1),
               genres: _genres,
             ),
             ScrollingMovies(
               themeData: state.themeData,
-              title: 'Now Playing',
-              api: Endpoints.nowPlayingMoviesUrl(1),
+              title: 'En Cartelera',
+              api: Endpoints.nowPlayingMoviesUrl(2),
               genres: _genres,
             ),
             // ScrollingMovies(
             //   themeData: state.themeData,
-            //   title: 'Upcoming Movies',
+            //   title: 'Proximamente',
             //   api: Endpoints.upcomingMoviesUrl(1),
             //   genres: _genres,
             // ),
             ScrollingMovies(
               themeData: state.themeData,
-              title: 'Popular',
+              title: 'Populares',
               api: Endpoints.popularMoviesUrl(1),
               genres: _genres,
             ),

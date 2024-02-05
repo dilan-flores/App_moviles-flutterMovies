@@ -13,10 +13,9 @@ class MovieSearch extends SearchDelegate<Movie?> {
     final ThemeData theme = themeData!.copyWith(
         hintColor: themeData!.colorScheme.secondary,
         primaryColor: themeData!.primaryColor,
-        textTheme: TextTheme(
-          headline6: themeData!.textTheme.bodyText1,
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(color: Color.fromRGBO(0, 0, 255, 0.8)),
         ));
-
     return theme;
   }
 
@@ -78,7 +77,7 @@ class MovieSearch extends SearchDelegate<Movie?> {
                   color: themeData!.colorScheme.secondary,
                 ),
               ),
-              Text('Enter a Movie to search.',
+              Text('Ingrese una película para buscar.',
                   style: themeData!.textTheme.bodyText1)
             ],
           )),

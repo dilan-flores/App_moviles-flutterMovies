@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
         color: themeData!.primaryColor,
         child: Center(
           child: Text(
-            'Coming Soon.',
+            'Muy pronto.',
             style: themeData!.textTheme.bodyText1,
           ),
         ),

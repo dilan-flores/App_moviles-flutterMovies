@@ -14,7 +14,7 @@ class _SettingsPageState extends State<SettingsPage> {
   int? option;
   final List<Color> colors = [Colors.white, Color(0xff242248), Colors.black];
   final List<Color> borders = [Colors.black, Colors.white, Colors.white];
-  final List<String> themes = ['Light', 'Dark', 'Amoled'];
+  final List<String> themes = ['Claro', 'Oscuro'];
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Theme',
+                      'Temas',
                       style: state.themeData.textTheme.bodyText1,
                     ),
                   ],
@@ -85,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
-                      itemCount: 3,
+                      itemCount: 2,
                       itemBuilder: (BuildContext context, int index) {
                         return Stack(
                           children: <Widget>[
@@ -125,11 +125,10 @@ class _SettingsPageState extends State<SettingsPage> {
                                             state.saveOptionValue(
                                                 ThemeStateEnum.dark);
                                             break;
-                                          case 2:
-                                            state.saveOptionValue(
-                                                ThemeStateEnum.amoled);
-
-                                            break;
+                                          //case 2:
+                                          //  state.saveOptionValue(
+                                          //      ThemeStateEnum.amoled);
+                                          //  break;
                                         }
                                       });
                                     },
