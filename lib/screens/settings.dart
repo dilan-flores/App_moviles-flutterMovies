@@ -1,8 +1,7 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_movies/screens/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_movies/theme/theme_state.dart';
+import 'package:flutter_movies/login.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -42,7 +41,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: CircleAvatar(
-                              backgroundColor: state.themeData.colorScheme.secondary,
+                              backgroundColor: state.themeData.colorScheme
+                                  .secondary,
                               radius: 40,
                               child: Icon(
                                 Icons.person_outline,
@@ -50,20 +50,20 @@ class _SettingsPageState extends State<SettingsPage> {
                                 color: state.themeData.primaryColor,
                               )),
                         ),
-                        TextButton(
+                        TextButton.icon(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginScreen(
-                                      themeData: state.themeData,
-                                    )));
+                            _salir(context);
                           },
-                          child: Text(
-                            'Log In / Sign Up',
-                            style: state.themeData.textTheme.bodyText1,
+                          label: Text(
+                            'Salir',
+                            style: TextStyle(fontSize: 25, color: state.themeData.brightness == Brightness.light ? Colors.black : Colors.white),
+                          ),
+                          icon: Icon(
+                            Icons.logout,
+                            color: state.themeData.brightness == Brightness.light ? Colors.black : Colors.white,
                           ),
                         ),
+
                       ],
                     ),
                   ),
@@ -125,10 +125,10 @@ class _SettingsPageState extends State<SettingsPage> {
                                             state.saveOptionValue(
                                                 ThemeStateEnum.dark);
                                             break;
-                                          //case 2:
-                                          //  state.saveOptionValue(
-                                          //      ThemeStateEnum.amoled);
-                                          //  break;
+                                        //case 2:
+                                        //  state.saveOptionValue(
+                                        //      ThemeStateEnum.amoled);
+                                        //  break;
                                         }
                                       });
                                     },
@@ -159,4 +159,11 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ));
   }
+}
+void _salir(BuildContext context) async {
+  await FirebaseAuth.instance.signOut();
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => MainPage()), // Reemplaza LoginPage con el nombre correcto de tu clase de inicio de sesión
+  );
 }

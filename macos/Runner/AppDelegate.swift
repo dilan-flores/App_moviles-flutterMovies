@@ -1,5 +1,6 @@
 import Cocoa
 import FlutterMacOS
+import Firebase
 
 @NSApplicationMain
 class AppDelegate: FlutterAppDelegate {
