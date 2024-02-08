@@ -8,10 +8,13 @@ import 'package:flutter_movies/screens/movie_detail.dart';
 import 'package:flutter_movies/screens/search_view.dart';
 import 'package:flutter_movies/screens/settings.dart';
 import 'package:flutter_movies/screens/widgets.dart';
+import 'package:flutter_movies/screens/genremovies.dart';
 import 'package:flutter_movies/theme/theme_state.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_movies/login.dart';
 import 'firebase_options.dart';
+import 'package:flutter/material.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,15 +46,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Genres> _genres = [];
+
   @override
   void initState() {
     super.initState();
     fetchGenres().then((value) {
-      _genres = value.genres ?? [];
+      setState(() {
+        _genres = value.genres ?? [];
+      });
     });
   }
+
+  Future<void> _searchMoviesByGenre(String genreName) async {
+    final selectedGenre = _genres.firstWhere(
+          (genre) => genre.name!.toLowerCase() == genreName.toLowerCase(),
+      orElse: () => Genres(id: 0, name: ''),
+    );
+
+    if (selectedGenre.id != 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => GenreMovies(
+            themeData: Provider.of<ThemeState>(context, listen: false).themeData,
+            genre: selectedGenre,
+            genres: _genres,
+          ),
+        ),
+      );
+    } else {
+      // Handle case where selected genre is not found
+      print('Genre not found');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,18 +111,21 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.search),
             onPressed: () async {
               final Movie? result = await showSearch<Movie?>(
-                  context: context,
-                  delegate:
-                  MovieSearch(themeData: state.themeData, genres: _genres));
+                context: context,
+                delegate: MovieSearch(themeData: state.themeData, genres: _genres),
+              );
               if (result != null) {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MovieDetailPage(
-                            movie: result,
-                            themeData: state.themeData,
-                            genres: _genres,
-                            heroId: '${result.id}search')));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MovieDetailPage(
+                      movie: result,
+                      themeData: state.themeData,
+                      genres: _genres,
+                      heroId: '${result.id}search',
+                    ),
+                  ),
+                );
               }
             },
           )
@@ -106,6 +139,23 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           physics: BouncingScrollPhysics(),
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () => _searchMoviesByGenre("Romance"),
+                  child: Text("Romance"),
+                ),
+                ElevatedButton(
+                  onPressed: () => _searchMoviesByGenre("Acción"),
+                  child: Text("Acción"),
+                ),
+                ElevatedButton(
+                  onPressed: () => _searchMoviesByGenre("Comedia"),
+                  child: Text("Comedia"),
+                ),
+              ],
+            ),
             DiscoverMovies(
               themeData: state.themeData,
               genres: _genres,
@@ -122,12 +172,6 @@ class _MyHomePageState extends State<MyHomePage> {
               api: Endpoints.nowPlayingMoviesUrl(2),
               genres: _genres,
             ),
-            // ScrollingMovies(
-            //   themeData: state.themeData,
-            //   title: 'Proximamente',
-            //   api: Endpoints.upcomingMoviesUrl(1),
-            //   genres: _genres,
-            // ),
             ScrollingMovies(
               themeData: state.themeData,
               title: 'Populares',
