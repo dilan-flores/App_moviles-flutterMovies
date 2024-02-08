@@ -1,16 +1,50 @@
-# flutter_movies
+# Aplicación Flutter de Películas
 
-A new Flutter project.
+Este proyecto utiliza Flutter y la API de The Movie Database (TMDb) para mostrar información sobre películas.
 
-## Getting Started
+#
+### Desarrollado por Dilan Flores
+#
 
-This project is a starting point for a Flutter application.
+## Distribución
 
-A few resources to get you started if this is your first Flutter project:
+Disponible en diferentes plataformas:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+#### Dispositivos Móviles Android (APK)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Versión para dispositivos móviles Android disponible en este repositorio: ➤ **ejecutable/android/FutterMovies_DFlores.apk**
+
+#### Aplicación de Escritorio para Windows
+
+- Aplicación de escritorio para Windows disponible en este repositorio: ➤ **ejecutable/windows/flutter_movies.exe**
+- Versión empaquetada en formato MSIX disponible en este repositorio: ➤ **ejecutable/windows/flutter_movies.msix**
+
+## Detalles de Implementación
+
+Este proyecto incluye varias implementaciones y mejoras, que se detallan a continuación:
+
+### Actualización de versiones
+![imagen](https://github.com/dilan-flores/App_moviles-flutterMovies/assets/117755180/192edfa4-420f-4c84-a601-c9ffac842936)
+
+### Registro
+![imagen](https://github.com/dilan-flores/App_moviles-flutterMovies/assets/117755180/5092c25b-b5dd-4db8-8bf2-a32e1ac6748f)
+
+
+### Iniciar sesión
+![imagen](https://github.com/dilan-flores/App_moviles-flutterMovies/assets/117755180/4748cfe2-ccda-4984-a43c-60d81a533874)
+
+
+### Géneros para listar películas
+![imagen](https://github.com/dilan-flores/App_moviles-flutterMovies/assets/117755180/69ecb500-82c0-42c3-9bc2-fb1296a73bdf)
+
+### Cerrar sesión
+![imagen](https://github.com/dilan-flores/App_moviles-flutterMovies/assets/117755180/5b0f1cb0-ec0d-461a-8017-1f0063e845ec)
+
+### Cambio de idioma
+![imagen](https://github.com/dilan-flores/App_moviles-flutterMovies/assets/117755180/a4f27a78-5f9a-4349-abf1-cccae33470e6)
+
+# Referencias
+https://github.com/bimsina/Matinee-Flutter.git
+
+https://github.com/luisserranopro/curso-flutter.git
+
