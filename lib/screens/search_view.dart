@@ -78,7 +78,7 @@ class MovieSearch extends SearchDelegate<Movie?> {
                 ),
               ),
               Text('Ingresa una película para buscar.',
-                  style: themeData!.textTheme.bodyText1)
+                  style: themeData!.textTheme.bodyLarge)
             ],
           )),
     );

@@ -5,7 +5,7 @@ import 'package:flutter_movies/modal_class/credits.dart';
 class CastAndCrew extends StatelessWidget {
   final ThemeData? themeData;
   final Credits? credits;
-  CastAndCrew({this.themeData, this.credits});
+  const CastAndCrew({super.key, this.themeData, this.credits});
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +21,20 @@ class CastAndCrew extends StatelessWidget {
               Tab(
                 child: Text(
                   'Elenco',
-                  style: themeData!.textTheme.bodyText1,
+                  style: themeData!.textTheme.bodyLarge,
                 ),
               ),
               Tab(
                 child: Text(
                   'Equipo',
-                  style: themeData!.textTheme.bodyText1,
+                  style: themeData!.textTheme.bodyLarge,
                 ),
               ),
             ],
           ),
           title: Text(
             'Reparto y Equipo',
-            style: themeData!.textTheme.headline5,
+            style: themeData!.textTheme.headlineSmall,
           ),
           leading: IconButton(
             icon: Icon(
@@ -58,7 +58,7 @@ class CastAndCrew extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0, top: 8.0),
       color: themeData!.primaryColor,
       child: ListView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: credits!.cast!.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
@@ -77,12 +77,10 @@ class CastAndCrew extends StatelessWidget {
                       fit: BoxFit.cover,
                     )
                         : FadeInImage(
-                      image: NetworkImage(TMDB_BASE_IMAGE_URL +
-                          'w500/' +
-                          credits!.cast![index].profilePath!),
+                      image: NetworkImage('${TMDB_BASE_IMAGE_URL}w500/${credits!.cast![index].profilePath!}'),
                       fit: BoxFit.cover,
                       placeholder:
-                      AssetImage('assets/images/loading.gif'),
+                      const AssetImage('assets/images/loading.gif'),
                     ),
                   ),
                 ),
@@ -94,13 +92,13 @@ class CastAndCrew extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Nombre : ' + credits!.cast![index].name!,
-                          style: themeData!.textTheme.bodyText2,
+                          'Nombre : ${credits!.cast![index].name!}',
+                          style: themeData!.textTheme.bodyMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          'Personaje : ' + credits!.cast![index].character!,
-                          style: themeData!.textTheme.bodyText1,
+                          'Personaje : ${credits!.cast![index].character!}',
+                          style: themeData!.textTheme.bodyLarge,
                         ),
                       ],
                     ),
@@ -119,7 +117,7 @@ class CastAndCrew extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0, top: 8.0),
       color: themeData!.primaryColor,
       child: ListView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: credits!.crew!.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
@@ -138,12 +136,10 @@ class CastAndCrew extends StatelessWidget {
                       fit: BoxFit.cover,
                     )
                         : FadeInImage(
-                      image: NetworkImage(TMDB_BASE_IMAGE_URL +
-                          'w500/' +
-                          credits!.crew![index].profilePath!),
+                      image: NetworkImage('${TMDB_BASE_IMAGE_URL}w500/${credits!.crew![index].profilePath!}'),
                       fit: BoxFit.cover,
                       placeholder:
-                      AssetImage('assets/images/loading.gif'),
+                      const AssetImage('assets/images/loading.gif'),
                     ),
                   ),
                 ),
@@ -155,13 +151,13 @@ class CastAndCrew extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'Nombre : ' + credits!.crew![index].name!,
-                          style: themeData!.textTheme.bodyText2,
+                          'Nombre : ${credits!.crew![index].name!}',
+                          style: themeData!.textTheme.bodyMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          'Trabajo : ' + credits!.crew![index].job!,
-                          style: themeData!.textTheme.bodyText1,
+                          'Trabajo : ${credits!.crew![index].job!}',
+                          style: themeData!.textTheme.bodyLarge,
                         ),
                       ],
                     ),
