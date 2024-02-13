@@ -12,15 +12,15 @@ Disponible en diferentes plataformas:
 
 #### Dispositivos Móviles Android (APK)
 
-- Versión para dispositivos móviles Android disponible en este repositorio: ➤ **ejecutable/android/FutterMovies_DFlores.apk**
+- Versión para dispositivos móviles Android disponible en este repositorio: ➤ **[ejecutable/android/FutterMovies_DFlores.apk](https://github.com/dilan-flores/App_moviles-flutterMovies/blob/main/ejecutable/android/FutterMovies_DFlores.apk)**
 
 #### Aplicación de Escritorio para Windows
 
-- Aplicación de escritorio para Windows disponible en este repositorio: ➤ **ejecutable/windows/flutter_movies.exe**
-- Versión empaquetada en formato MSIX disponible en este repositorio: ➤ **ejecutable/windows/flutter_movies.msix**
+- Aplicación de escritorio para Windows disponible en este repositorio (Nota: Es necesario descargar la carpeta /windows para ejecutar flutter_movies.exe): ➤ **[ejecutable/windows](https://github.com/dilan-flores/App_moviles-flutterMovies/tree/main/ejecutable/windows)**
+
+- Versión empaquetada en formato MSIX disponible en este repositorio: ➤ **[ejecutable/windows/flutter_movies.msix](https://github.com/dilan-flores/App_moviles-flutterMovies/blob/main/ejecutable/windows/flutter_movies.msix)**
 
 ## Detalles de Implementación
-
 Este proyecto incluye varias implementaciones y mejoras, que se detallan a continuación:
 
 ### Actualización de versiones
